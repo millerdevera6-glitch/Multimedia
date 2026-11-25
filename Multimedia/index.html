@@ -1,0 +1,1203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="An interactive, educational multimedia platform exploring Peer-to-Peer and Client-Server networking architectures.">
+  <title>Understanding Network Architectures: Peer-to-Peer & Client-Server Networking</title>
+
+  <!-- Preconnect to Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;600&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Core Stylesheet -->
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- =========================================================================
+       NAVIGATION BAR (Fixed Sticky Header)
+       ========================================================================= -->
+  <header class="navbar" role="banner">
+    <div class="container nav-container">
+      <a href="#hero" class="nav-brand" aria-label="Home">
+        <span class="brand-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="2" y="2" width="6" height="6" rx="1"></rect>
+            <rect x="16" y="2" width="6" height="6" rx="1"></rect>
+            <rect x="9" y="16" width="6" height="6" rx="1"></rect>
+            <path d="M5 8v3a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V8"></path>
+            <path d="M12 12v4"></path>
+          </svg>
+        </span>
+        <span>NetArchitect <span class="brand-tag">// EduHub</span></span>
+      </a>
+
+      <!-- Navigation Links -->
+      <nav role="navigation">
+        <ul class="nav-menu" id="navMenu">
+          <li><a href="#hero" class="nav-link active">Overview</a></li>
+          <li><a href="#networking-intro" class="nav-link">Basics</a></li>
+          <li><a href="#p2p-section" class="nav-link">Peer-to-Peer</a></li>
+          <li><a href="#client-server-section" class="nav-link">Client-Server</a></li>
+          <li><a href="#comparison-section" class="nav-link">Comparison</a></li>
+          <li><a href="#multimedia-section" class="nav-link">Multimedia Core</a></li>
+          <li><a href="#interactive-sim-section" class="nav-link">Live Simulator</a></li>
+          <li><a href="#summary-section" class="nav-link">Takeaways</a></li>
+          <li><a href="#quiz-section" class="nav-link">Quiz</a></li>
+        </ul>
+      </nav>
+
+      <!-- Quick Action Controls -->
+      <div class="nav-actions">
+        <!-- Sound FX Synthesizer Toggle -->
+        <button id="soundToggleBtn" class="sound-toggle active" title="Sound FX: ON" aria-label="Toggle sound effects">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
+            <path d="M19.07 4.93a10 10 0 0 1 0 14.14M15.54 8.46a5 5 0 0 1 0 7.07"></path>
+          </svg>
+        </button>
+
+        <!-- Web Speech API Narrator Toggle -->
+        <button id="narratorToggleBtn" class="narrator-toggle" title="Listen to Lesson Audio Summary" aria-label="Read lesson aloud">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"></path>
+            <path d="M19 10v2a7 7 0 0 1-14 0v-2"></path>
+            <line x1="12" y1="19" x2="12" y2="23"></line>
+            <line x1="8" y1="23" x2="16" y2="23"></line>
+          </svg>
+        </button>
+
+        <!-- Mobile Nav Hamburger -->
+        <button id="mobileNavToggle" class="nav-toggle-btn" aria-label="Toggle navigation menu">
+          ☰
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main role="main">
+
+    <!-- =======================================================================
+         SECTION 1: HERO / LANDING SECTION
+         ======================================================================= -->
+    <section id="hero" class="hero-section">
+      <div class="container hero-grid">
+        <div class="hero-content">
+          <div class="hero-badge">
+            <span class="pulse-dot"></span>
+            <span>BSIT MULTIMEDIA & NETWORKING MODULE</span>
+          </div>
+
+          <h1 class="hero-title">
+            Understanding <span class="accent-text">Network</span> Architectures
+          </h1>
+          <h2 class="hero-subtitle">
+            Peer-to-Peer and Client-Server Networking
+          </h2>
+          <p class="hero-description">
+            Computer networking forms the invisible foundation of our digital civilization. In this interactive multimedia learning experience, discover how decentralized peer-to-peer swarms and centralized client-server hubs distribute data, enforce security, and scale across modern distributed applications.
+          </p>
+
+          <div class="hero-cta-group">
+            <a href="#networking-intro" class="btn btn-primary">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
+              Start Learning
+            </a>
+            <a href="#interactive-sim-section" class="btn btn-secondary">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="8" x2="12" y2="12"></line><line x1="12" y1="16" x2="12.01" y2="16"></line></svg>
+              Launch Network Simulator
+            </a>
+          </div>
+
+          <div class="hero-stats-bar">
+            <div class="hero-stat-item">
+              <span class="stat-number">2 Major</span>
+              <span class="stat-label">Architectures</span>
+            </div>
+            <div class="hero-stat-item">
+              <span class="stat-number">5 Media</span>
+              <span class="stat-label">Elements</span>
+            </div>
+            <div class="hero-stat-item">
+              <span class="stat-number">8 Design</span>
+              <span class="stat-label">Principles</span>
+            </div>
+            <div class="hero-stat-item">
+              <span class="stat-number">100%</span>
+              <span class="stat-label">Interactive</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Interactive Hero Topology Card -->
+        <div class="hero-visual-card">
+          <div class="hero-visual-header">
+            <span class="hero-visual-title">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"></circle><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path></svg>
+              Live Topology Visualizer
+            </span>
+            <div class="hero-topology-toggle">
+              <button class="top-toggle-btn active" data-topology="p2p">P2P Mesh</button>
+              <button class="top-toggle-btn" data-topology="cs">Client-Server Hub</button>
+            </div>
+          </div>
+
+          <div id="heroTopologyDiagram" class="hero-diagram-container">
+            <!-- Dynamic SVG injected via script.js -->
+          </div>
+          <div id="heroDiagramStatus" class="hero-diagram-status">TOPOLOGY: FULL MESH PEER-TO-PEER (DECENTRALIZED)</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =======================================================================
+         SECTION 2: INTRODUCTION TO NETWORKING
+         ======================================================================= -->
+    <section id="networking-intro">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tag">Core Fundamentals</span>
+          <h2 class="section-title">What is Computer Networking?</h2>
+          <p class="section-subtitle">
+            A computer network is an interconnected collection of computing devices—ranging from microcontrollers and smartphones to supercomputers and cloud clusters—that communicate through shared communication protocols to exchange information, distribute workloads, and access centralized or shared resources.
+          </p>
+        </div>
+
+        <div class="intro-grid">
+          <div class="card">
+            <div class="card-icon">⚡</div>
+            <h3 class="card-title">Why Devices Communicate</h3>
+            <p class="card-text">
+              Isolated computers can only process local information. By interconnecting devices through wired Ethernet or wireless frequencies, machines collaborate instantaneously, enabling distributed database replication, multiplayer synchronization, and live telemetry feeds across global distances.
+            </p>
+          </div>
+
+          <div class="card">
+            <div class="card-icon">🔄</div>
+            <h3 class="card-title">How Data is Shared</h3>
+            <p class="card-text">
+              Digital files are broken down into small units known as <strong>packets</strong>. Each packet contains payload data, sequence numbers, and destination IP headers. Network switches, routers, and protocol layers assemble these packets in nanoseconds to reconstruct the original stream flawlessly.
+            </p>
+          </div>
+
+          <div class="card">
+            <div class="card-icon">🖨️</div>
+            <h3 class="card-title">Hardware & Resource Sharing</h3>
+            <p class="card-text">
+              Networks allow expensive physical hardware—such as enterprise optical storage, high-throughput GPU training clusters, network-attached storage (NAS), and industrial printers—to be accessed securely and concurrently by hundreds of authorized users.
+            </p>
+          </div>
+
+          <div class="card">
+            <div class="card-icon">🌐</div>
+            <h3 class="card-title">Everyday Applications</h3>
+            <p class="card-text">
+              From streaming high-definition video on Netflix and Spotify to transacting on blockchain networks, authenticating via OAuth 2.0, and synchronizing code repositories on GitHub, nearly every contemporary software experience depends on robust networking architectures.
+            </p>
+          </div>
+        </div>
+
+        <!-- Spotlight Banner: Networking Primitives -->
+        <div class="concept-spotlight">
+          <div class="spotlight-content">
+            <span class="section-tag">Building Blocks</span>
+            <h3>The Currency of the Connected World</h3>
+            <p>
+              Whether data travels through a decentralized peer mesh or a centralized cloud database, four fundamental metrics determine communication performance: <strong>Bandwidth</strong> (channel capacity), <strong>Latency</strong> (propagation delay), <strong>Throughput</strong> (actual data transferred per second), and <strong>Packet Loss</strong> (reliability).
+            </p>
+            <div class="spotlight-features">
+              <div class="feature-pill">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline></svg>
+                Low Latency Packets
+              </div>
+              <div class="feature-pill">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>
+                TLS / End-to-End Encryption
+              </div>
+              <div class="feature-pill">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><path d="M16 12l-4-4-4 4M12 16V9"></path></svg>
+                Bidirectional Sockets
+              </div>
+              <div class="feature-pill">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path></svg>
+                Resource Virtualization
+              </div>
+            </div>
+          </div>
+          <div class="spotlight-diagram">
+            <svg viewBox="0 0 280 200" style="width:100%; max-width:280px;">
+              <rect x="20" y="20" width="80" height="50" rx="8" fill="#1C2541" stroke="#5BC0BE" stroke-width="2"/>
+              <text x="60" y="50" text-anchor="middle" fill="#FFFFFF" font-size="11" font-weight="bold">Host A</text>
+              
+              <rect x="180" y="20" width="80" height="50" rx="8" fill="#1C2541" stroke="#38BDF8" stroke-width="2"/>
+              <text x="220" y="50" text-anchor="middle" fill="#FFFFFF" font-size="11" font-weight="bold">Host B</text>
+
+              <!-- Connection Cable -->
+              <path d="M100 45 L180 45" stroke="#3A506B" stroke-width="3" stroke-dasharray="4 4"/>
+              <circle cx="140" cy="45" r="5" fill="#5BC0BE">
+                <animate attributeName="cx" values="100;180;100" dur="2.5s" repeatCount="indefinite"/>
+              </circle>
+
+              <rect x="50" y="120" width="180" height="60" rx="8" fill="#0B132B" stroke="#3A506B" stroke-width="1.5"/>
+              <text x="140" y="145" text-anchor="middle" fill="#94A3B8" font-size="10" font-family="Consolas, monospace">Protocol: TCP/IP</text>
+              <text x="140" y="165" text-anchor="middle" fill="#5BC0BE" font-size="10" font-family="Consolas, monospace">Payload: 1500 MTU Data</text>
+            </svg>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =======================================================================
+         SECTION 3: PEER-TO-PEER (P2P) NETWORKING
+         ======================================================================= -->
+    <section id="p2p-section">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tag arch-badge-p2p">Decentralized Mesh Architecture</span>
+          <h2 class="section-title">Peer-to-Peer (P2P) Networking</h2>
+          <p class="section-subtitle">
+            In a pure Peer-to-Peer network, there are no hierarchical masters or dedicated servers. Every participant on the network possesses identical privileges and operates simultaneously as both a consumer and a provider of resources.
+          </p>
+        </div>
+
+        <div class="arch-layout">
+          <!-- Left: P2P Comprehensive Theory Card -->
+          <div class="arch-overview-card">
+            <h3>How Peer-to-Peer Operates</h3>
+            <div class="arch-how-it-works">
+              <p>
+                Each node in a P2P architecture is called a <strong>Servent</strong> (combining the words <em>Server</em> and <em>Client</em>). When Node A wants to download a dataset, it queries a distributed hash table (DHT) or broadcast tracker to find which other peers hold chunks of that file. It then downloads pieces concurrently from dozens of neighboring nodes while simultaneously uploading already completed pieces to others.
+              </p>
+            </div>
+
+            <h4 style="margin-top: 1.5rem; font-size: 1.1rem;">Fundamental Characteristics:</h4>
+            <ul class="arch-features-list">
+              <li><strong>Equal Status (Flat Topology):</strong> No single workstation holds administrative priority over another.</li>
+              <li><strong>Distributed Resource Pooling:</strong> Hard drive storage, memory, and upload bandwidth are pooled collectively across all peers.</li>
+              <li><strong>Dynamic Membership:</strong> Nodes can connect, disconnect, or rejoin the network at will without causing overall network collapse.</li>
+              <li><strong>Direct Point-to-Point Transmission:</strong> Once peer addresses are resolved, data flows directly over socket connections between the participants.</li>
+            </ul>
+          </div>
+
+          <!-- Right: Interactive P2P Mesh Diagram -->
+          <div class="diagram-showcase-box">
+            <div class="diagram-header-bar">
+              <span class="diagram-title">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="18" cy="5" r="3"></circle><circle cx="6" cy="12" r="3"></circle><circle cx="18" cy="19" r="3"></circle><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"></line><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"></line></svg>
+                Interactive P2P Mesh Showcase
+              </span>
+              <span class="badge-tag tag-p2p">Zero Central Authority</span>
+            </div>
+
+            <div class="diagram-stage">
+              <span class="diagram-instructions">Click any peer node to inspect its servent status</span>
+              <svg viewBox="0 0 460 340" style="width:100%; height:100%;">
+                <!-- Mesh Interconnections -->
+                <g stroke="#3A506B" stroke-width="1.8" stroke-dasharray="3 3">
+                  <line x1="230" y1="60" x2="90" y2="140" />
+                  <line x1="230" y1="60" x2="370" y2="140" />
+                  <line x1="230" y1="60" x2="140" y2="280" />
+                  <line x1="230" y1="60" x2="320" y2="280" />
+
+                  <line x1="90" y1="140" x2="370" y2="140" />
+                  <line x1="90" y1="140" x2="140" y2="280" />
+                  <line x1="90" y1="140" x2="320" y2="280" />
+
+                  <line x1="370" y1="140" x2="140" y2="280" />
+                  <line x1="370" y1="140" x2="320" y2="280" />
+
+                  <line x1="140" y1="280" x2="320" y2="280" />
+                </g>
+
+                <!-- Interactive Animated Transfer Packet -->
+                <circle id="p2pInteractivePacket" r="6" fill="#5BC0BE" style="display:none; transform-origin:center;">
+                  <animateMotion path="M230,60 L370,140" dur="1.6s" repeatCount="1" fill="freeze"/>
+                </circle>
+
+                <!-- 5 Clickable Servent Nodes -->
+                <g class="interactive-p2p-node" data-node-name="Node Alpha (Seeder)" data-node-role="Servent (Provider & Consumer)" data-node-files="Chunks #01-100" transform="translate(230, 60)" cursor="pointer">
+                  <circle r="26" fill="#1C2541" stroke="#5BC0BE" stroke-width="2.5" />
+                  <text y="4" text-anchor="middle" fill="#FFFFFF" font-size="10" font-family="Consolas, monospace" font-weight="bold">Peer 1</text>
+                </g>
+
+                <g class="interactive-p2p-node" data-node-name="Node Beta (Leecher)" data-node-role="Servent (Downloading #50-75)" data-node-files="Chunks #01-49" transform="translate(90, 140)" cursor="pointer">
+                  <circle r="26" fill="#1C2541" stroke="#5BC0BE" stroke-width="2.5" />
+                  <text y="4" text-anchor="middle" fill="#FFFFFF" font-size="10" font-family="Consolas, monospace" font-weight="bold">Peer 2</text>
+                </g>
+
+                <g class="interactive-p2p-node" data-node-name="Node Gamma (Relay)" data-node-role="Servent (Uploading #20-40)" data-node-files="Chunks #01-80" transform="translate(370, 140)" cursor="pointer">
+                  <circle r="26" fill="#1C2541" stroke="#5BC0BE" stroke-width="2.5" />
+                  <text y="4" text-anchor="middle" fill="#FFFFFF" font-size="10" font-family="Consolas, monospace" font-weight="bold">Peer 3</text>
+                </g>
+
+                <g class="interactive-p2p-node" data-node-name="Node Delta" data-node-role="Servent (Full Sync)" data-node-files="Chunks #01-100" transform="translate(140, 280)" cursor="pointer">
+                  <circle r="26" fill="#1C2541" stroke="#5BC0BE" stroke-width="2.5" />
+                  <text y="4" text-anchor="middle" fill="#FFFFFF" font-size="10" font-family="Consolas, monospace" font-weight="bold">Peer 4</text>
+                </g>
+
+                <g class="interactive-p2p-node" data-node-name="Node Epsilon" data-node-role="Servent (Leech / Seed)" data-node-files="Chunks #40-90" transform="translate(320, 280)" cursor="pointer">
+                  <circle r="26" fill="#1C2541" stroke="#5BC0BE" stroke-width="2.5" />
+                  <text y="4" text-anchor="middle" fill="#FFFFFF" font-size="10" font-family="Consolas, monospace" font-weight="bold">Peer 5</text>
+                </g>
+              </svg>
+            </div>
+
+            <div class="diagram-actions-bar">
+              <span id="p2pActiveNodeInfo" class="active-node-info">Selected: Node Alpha | Role: Servent</span>
+              <button id="p2pTriggerShareBtn" class="btn btn-primary btn-sm">Direct Peer Transfer</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Pros and Cons of P2P -->
+        <div class="pros-cons-grid">
+          <div class="pros-box">
+            <h4 class="box-title">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+              Key Advantages of P2P
+            </h4>
+            <ul class="benefit-list">
+              <li><strong>Zero Single Point of Failure:</strong> If any single peer shuts down or loses power, the remaining peers seamlessly continue exchanging data.</li>
+              <li><strong>Extremely Cost-Effective:</strong> Eliminates the requirement to purchase multi-thousand dollar server hardware, operating systems, and dedicated cooling.</li>
+              <li><strong>Self-Scaling Bandwidth:</strong> In high-demand scenarios, every new downloader adds extra upload capacity to the swarm, naturally preventing bandwidth exhaustion.</li>
+              <li><strong>Rapid Ad-Hoc Deployment:</strong> Devices can form an instant network in remote environments (such as disaster zones or field research) without pre-existing server configuration.</li>
+            </ul>
+          </div>
+
+          <div class="cons-box">
+            <h4 class="box-title">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+              Key Disadvantages of P2P
+            </h4>
+            <ul class="benefit-list">
+              <li><strong>Complex Security Enforcement:</strong> Without a central gatekeeper, verifying that peer machines are free of malware, spyware, or corrupted files is difficult.</li>
+              <li><strong>Uncontrolled Data Backups:</strong> Because files are dispersed across consumer computers, backing up mission-critical records systematically is an immense challenge.</li>
+              <li><strong>Variable Performance:</strong> Overall download speeds depend on unpredictable residential internet connections and unpredictable peer availability.</li>
+              <li><strong>No Central User Directory:</strong> Auditing activity, managing user permissions, and enforcing regulatory standards (like HIPAA or PCI-DSS) is nearly impossible.</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Real-World P2P Applications Grid -->
+        <h4 style="margin-top: 2.5rem; margin-bottom: 1rem; font-size: 1.25rem;">Real-World P2P Deployments</h4>
+        <div class="real-world-grid">
+          <div class="rw-card">
+            <span class="rw-badge">File Distribution</span>
+            <h5>BitTorrent Protocol</h5>
+            <p>Distributes operating system ISOs (such as Ubuntu Linux) and large multimedia assets by dividing files into small cryptographic pieces across thousands of seeders.</p>
+          </div>
+          <div class="rw-card">
+            <span class="rw-badge">Cryptocurrency</span>
+            <h5>Bitcoin & Ethereum Blockchains</h5>
+            <p>Utilizes decentralized peer consensus protocols to maintain an immutable global ledger of financial transactions without relying on any central bank or government.</p>
+          </div>
+          <div class="rw-card">
+            <span class="rw-badge">Real-Time Web</span>
+            <h5>WebRTC Video Streams</h5>
+            <p>Establishes direct browser-to-browser UDP audio and video channels for high-definition video conferencing without routing stream payloads through intermediate media servers.</p>
+          </div>
+          <div class="rw-card">
+            <span class="rw-badge">Local Proximity</span>
+            <h5>Apple AirDrop & Wi-Fi Direct</h5>
+            <p>Establishes temporary ad-hoc encrypted point-to-point Wi-Fi connections between nearby iPhones and MacBooks to transfer high-resolution photos and 4K videos in seconds.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =======================================================================
+         SECTION 4: CLIENT-SERVER NETWORKING
+         ======================================================================= -->
+    <section id="client-server-section">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tag arch-badge-cs">Centralized Hub Architecture</span>
+          <h2 class="section-title">Client-Server Networking</h2>
+          <p class="section-subtitle">
+            The foundation of enterprise computing, the Client-Server model divides network responsibilities between service requesters (clients) and dedicated, centralized service providers (servers).
+          </p>
+        </div>
+
+        <div class="arch-layout">
+          <!-- Left: Client-Server Theory Card -->
+          <div class="arch-overview-card">
+            <h3>How Client-Server Operates</h3>
+            <div class="arch-how-it-works" style="border-left-color: #38BDF8;">
+              <p>
+                In this hierarchical architecture, the workflow operates on a strict <strong>Request-Response</strong> paradigm. The client (e.g., a web browser or mobile application) initiates communication by formulating a structured request (such as an HTTP GET request or an SQL query) and sending it over the network to the server's listening port. The server authenticates the client, computes business logic, accesses persistent databases, and delivers a formatted response.
+              </p>
+            </div>
+
+            <h4 style="margin-top: 1.5rem; font-size: 1.1rem;">Fundamental Characteristics:</h4>
+            <ul class="arch-features-list">
+              <li><strong>Clear Separation of Concerns:</strong> Clients handle graphical user interfaces and input presentation; servers handle data processing, storage, and validation.</li>
+              <li><strong>Centralized Governance:</strong> All security policies, user authentication tokens, access logs, and databases reside in one controlled environment.</li>
+              <li><strong>Dedicated Hardware & OS:</strong> Servers run specialized operating systems (such as Linux Ubuntu Server, Windows Server) engineered for continuous uptime.</li>
+              <li><strong>Asymmetric Relationship:</strong> The server passively listens for connections, while clients actively initiate requests.</li>
+            </ul>
+          </div>
+
+          <!-- Right: Interactive Client-Server Diagram -->
+          <div class="diagram-showcase-box">
+            <div class="diagram-header-bar">
+              <span class="diagram-title">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="8" rx="2" ry="2"></rect><rect x="2" y="14" width="20" height="8" rx="2" ry="2"></rect><line x1="6" y1="6" x2="6.01" y2="6"></line><line x1="6" y1="18" x2="6.01" y2="18"></line></svg>
+                Interactive Client-Server Topology
+              </span>
+              <span class="badge-tag tag-cs">Centralized Management</span>
+            </div>
+
+            <div class="diagram-stage">
+              <span class="diagram-instructions">Click 'Send Request' to trigger the Request-Response cycle</span>
+              <svg viewBox="0 0 460 340" style="width:100%; height:100%;">
+                <!-- Star Spoke Connections -->
+                <g stroke="#3A506B" stroke-width="2" opacity="0.8">
+                  <line x1="230" y1="165" x2="80" y2="70" />
+                  <line x1="230" y1="165" x2="380" y2="70" />
+                  <line x1="230" y1="165" x2="70" y2="260" />
+                  <line x1="230" y1="165" x2="390" y2="260" />
+                </g>
+
+                <!-- Interactive Request Packet (Upward to Server) -->
+                <circle r="6" fill="#38BDF8">
+                  <animate id="csPacketUp" attributeName="opacity" values="0;1;1;0" dur="1s" begin="indefinite" fill="freeze" />
+                  <animateMotion id="csPacketUpMotion" path="M80,70 L230,165" dur="0.9s" begin="csPacketUp.begin" fill="freeze" />
+                </circle>
+
+                <!-- Interactive Response Packet (Downward from Server) -->
+                <circle r="6" fill="#10B981">
+                  <animate id="csPacketDown" attributeName="opacity" values="0;1;1;0" dur="1s" begin="indefinite" fill="freeze" />
+                  <animateMotion id="csPacketDownMotion" path="M230,165 L80,70" dur="0.9s" begin="csPacketDown.begin" fill="freeze" />
+                </circle>
+
+                <!-- Central Server Host Node -->
+                <g id="csServerCenterNode" transform="translate(230, 165)">
+                  <circle r="44" fill="#1C2541" stroke="#38BDF8" stroke-width="3" />
+                  <!-- Server Rack Graphic -->
+                  <rect x="-18" y="-16" width="36" height="32" rx="4" fill="#3A506B" stroke="#5BC0BE" stroke-width="1.5" />
+                  <line x1="-12" y1="-6" x2="12" y2="-6" stroke="#5BC0BE" stroke-width="2" />
+                  <line x1="-12" y1="2" x2="12" y2="2" stroke="#5BC0BE" stroke-width="2" />
+                  <circle cx="8" cy="9" r="2" fill="#10B981" />
+                  <text y="32" text-anchor="middle" fill="#38BDF8" font-size="9" font-family="Consolas, monospace" font-weight="bold">HOST SERVER</text>
+                  <text y="43" text-anchor="middle" fill="#94A3B8" font-size="8" font-family="Consolas, monospace">Port 443 / SSL</text>
+                </g>
+
+                <!-- Client A (Workstation) -->
+                <g transform="translate(80, 70)">
+                  <circle r="24" fill="#1C2541" stroke="#5BC0BE" stroke-width="2" />
+                  <text y="4" text-anchor="middle" fill="#FFFFFF" font-size="9" font-family="Consolas, monospace">Client A</text>
+                  <text y="34" text-anchor="middle" fill="#94A3B8" font-size="8">Browser</text>
+                </g>
+
+                <!-- Client B (Mobile App) -->
+                <g transform="translate(380, 70)">
+                  <circle r="24" fill="#1C2541" stroke="#3A506B" stroke-width="2" />
+                  <text y="4" text-anchor="middle" fill="#FFFFFF" font-size="9" font-family="Consolas, monospace">Client B</text>
+                  <text y="34" text-anchor="middle" fill="#94A3B8" font-size="8">iOS / Android</text>
+                </g>
+
+                <!-- Client C (Smart TV) -->
+                <g transform="translate(70, 260)">
+                  <circle r="24" fill="#1C2541" stroke="#3A506B" stroke-width="2" />
+                  <text y="4" text-anchor="middle" fill="#FFFFFF" font-size="9" font-family="Consolas, monospace">Client C</text>
+                  <text y="34" text-anchor="middle" fill="#94A3B8" font-size="8">Smart TV</text>
+                </g>
+
+                <!-- Client D (IoT Sensor) -->
+                <g transform="translate(390, 260)">
+                  <circle r="24" fill="#1C2541" stroke="#3A506B" stroke-width="2" />
+                  <text y="4" text-anchor="middle" fill="#FFFFFF" font-size="9" font-family="Consolas, monospace">Client D</text>
+                  <text y="34" text-anchor="middle" fill="#94A3B8" font-size="8">IoT Gateway</text>
+                </g>
+              </svg>
+            </div>
+
+            <div class="diagram-actions-bar">
+              <span id="csActiveStatusInfo" class="active-node-info">Ready: Client A awaiting user request trigger...</span>
+              <button id="csTriggerReqBtn" class="btn btn-primary btn-sm">Send HTTP Request</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Pros and Cons of Client-Server -->
+        <div class="pros-cons-grid">
+          <div class="pros-box">
+            <h4 class="box-title">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+              Key Advantages of Client-Server
+            </h4>
+            <ul class="benefit-list">
+              <li><strong>Centralized Security & Authorization:</strong> Firewalls, intrusion detection, SSL certificates, and role-based access control (RBAC) are administered at one central fortress.</li>
+              <li><strong>Consolidated Automated Backups:</strong> Nightly database dumps and snapshots ensure that complete institutional data can be restored if an incident occurs.</li>
+              <li><strong>Consistent & High Performance:</strong> Dedicated multi-core enterprise servers with fast NVMe arrays guarantee rapid responses regardless of client device specifications.</li>
+              <li><strong>Streamlined Software Upgrades:</strong> Upgrading business logic or API versions on the server immediately updates functionality for millions of users worldwide.</li>
+            </ul>
+          </div>
+
+          <div class="cons-box">
+            <h4 class="box-title">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+              Key Disadvantages of Client-Server
+            </h4>
+            <ul class="benefit-list">
+              <li><strong>Single Point of Failure:</strong> If the central primary server or host datacenter suffers a catastrophic outage, all dependent clients worldwide are rendered inoperable.</li>
+              <li><strong>High Initial & Ongoing Costs:</strong> Purchasing enterprise blades, VMware licenses, gigabit uplinks, and cooling infrastructure represents a massive financial investment.</li>
+              <li><strong>Bandwidth & CPU Bottlenecks:</strong> When hundreds of thousands of users submit requests simultaneously (e.g., concert ticket drops), server queues can become severely overloaded.</li>
+              <li><strong>Requires Specialized IT Staff:</strong> Demands certified system administrators, database administrators (DBAs), and cybersecurity engineers for maintenance.</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Real-World Client-Server Applications Grid -->
+        <h4 style="margin-top: 2.5rem; margin-bottom: 1rem; font-size: 1.25rem;">Real-World Client-Server Deployments</h4>
+        <div class="real-world-grid">
+          <div class="rw-card">
+            <span class="rw-badge">Global Hypertext</span>
+            <h5>The World Wide Web</h5>
+            <p>Billions of browser clients send HTTPS GET and POST requests to web servers (Nginx, Apache, Cloudflare) that assemble and serve HTML, CSS, and dynamic JSON payloads.</p>
+          </div>
+          <div class="rw-card">
+            <span class="rw-badge">Corporate Communication</span>
+            <h5>Enterprise Mail Servers</h5>
+            <p>Email clients (Outlook, Thunderbird) transmit outbound emails via SMTP to mail servers and fetch inbox messages securely via IMAP/POP3 protocols with spam filtering.</p>
+          </div>
+          <div class="rw-card">
+            <span class="rw-badge">Banking & Finance</span>
+            <h5>Core Banking Platforms</h5>
+            <p>ATMs and online mobile banking apps connect securely to centralized mainframe clusters (Oracle, PostgreSQL) to process debits and credits with zero data variance.</p>
+          </div>
+          <div class="rw-card">
+            <span class="rw-badge">Multiplayer Gaming</span>
+            <h5>Dedicated Game Servers</h5>
+            <p>Authoritative game servers (such as Valve or Riot servers) calculate physics, player positions, and hit registration to prevent client-side cheating in esports tournaments.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =======================================================================
+         SECTION 5: COMPARISON OF P2P AND CLIENT-SERVER
+         ======================================================================= -->
+    <section id="comparison-section" class="comparison-section">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tag">Architectural Comparison</span>
+          <h2 class="section-title">P2P vs. Client-Server Matrix</h2>
+          <p class="section-subtitle">
+            Choosing the correct network architecture depends on specific trade-offs between centralization, security governance, infrastructure cost, and fault tolerance. Explore the side-by-side technical breakdown below.
+          </p>
+        </div>
+
+        <!-- View Switcher Tabs -->
+        <div class="comparison-toggle-bar">
+          <button class="comp-tab-btn active" data-view="matrix">Comprehensive Comparison Table</button>
+          <button class="comp-tab-btn" data-view="duel">Side-by-Side Duel Cards</button>
+        </div>
+
+        <!-- Comparison Table View -->
+        <div id="comparisonTableView" class="table-responsive-wrapper">
+          <table class="comparison-table" role="table">
+            <thead>
+              <tr>
+                <th style="width: 20%;">Evaluation Criterion</th>
+                <th class="col-p2p" style="width: 40%;">Peer-to-Peer (P2P) Architecture</th>
+                <th class="col-cs" style="width: 40%;">Client-Server Architecture</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>
+                  <span class="crit-title">1. Network Architecture</span>
+                  <span class="crit-desc">Structural topology</span>
+                </td>
+                <td>
+                  <span class="badge-tag tag-p2p">Decentralized Mesh</span>
+                  Flat, ad-hoc topology with no central coordinator. Every node communicates directly with neighbors.
+                </td>
+                <td>
+                  <span class="badge-tag tag-cs">Hierarchical Star / Tree</span>
+                  Centralized hub-and-spoke topology. Clients connect directly to one or more central servers.
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <span class="crit-title">2. Resource Management</span>
+                  <span class="crit-desc">Storage and computing</span>
+                </td>
+                <td>
+                  <strong>Distributed across all peers:</strong> Files and compute power are shared across the member workstations.
+                </td>
+                <td>
+                  <strong>Centralized on dedicated hosts:</strong> Data and business processing reside on secured, dedicated server arrays.
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <span class="crit-title">3. Centralization Level</span>
+                  <span class="crit-desc">Authority and oversight</span>
+                </td>
+                <td>
+                  <strong>None:</strong> Equal privileges for all devices. No single computer can dictate or restrict network traffic.
+                </td>
+                <td>
+                  <strong>Strict:</strong> Complete administrative control by the central host and appointed system administrators.
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <span class="crit-title">4. Security & Access Control</span>
+                  <span class="crit-desc">Protection and audits</span>
+                </td>
+                <td>
+                  <strong>Challenging to enforce:</strong> Difficult to scan, audit, or restrict individual devices; vulnerability to infected peers.
+                </td>
+                <td>
+                  <strong>Robust and rigorous:</strong> Managed through central firewalls, SSL/TLS certificates, RBAC, and intrusion detection.
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <span class="crit-title">5. Scalability Model</span>
+                  <span class="crit-desc">Growth under demand</span>
+                </td>
+                <td>
+                  <strong>Naturally Self-Scaling:</strong> Bandwidth expands organically as new peers join and contribute upload capacity.
+                </td>
+                <td>
+                  <strong>Costly Vertical/Horizontal Scaling:</strong> Requires purchasing additional cloud instances or higher-capacity load balancers.
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <span class="crit-title">6. Maintenance & Backups</span>
+                  <span class="crit-desc">Upkeep and recovery</span>
+                </td>
+                <td>
+                  <strong>Individual Responsibility:</strong> Each peer must maintain their own machine; unified automated backup is very complex.
+                </td>
+                <td>
+                  <strong>Automated & Centralized:</strong> Backups, updates, and maintenance schedules are handled systematically by IT professionals.
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <span class="crit-title">7. Implementation Cost</span>
+                  <span class="crit-desc">Capex and Opex</span>
+                </td>
+                <td>
+                  <strong>Minimal to Zero Infrastructure Cost:</strong> Runs on users' existing computers and existing commercial ISP bandwidth.
+                </td>
+                <td>
+                  <strong>High Infrastructure Cost:</strong> Requires servers, server OS licenses, enterprise switches, and certified personnel.
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <span class="crit-title">8. Performance & Reliability</span>
+                  <span class="crit-desc">Speed and fault tolerance</span>
+                </td>
+                <td>
+                  <strong>High Fault Tolerance:</strong> No single point of failure. Individual speeds fluctuate based on peer upload capacity.
+                </td>
+                <td>
+                  <strong>High Speed, Single Vulnerability:</strong> Dedicated high throughput, but total outage if central server fails.
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <span class="crit-title">9. Ideal Applications</span>
+                  <span class="crit-desc">Common use cases</span>
+                </td>
+                <td>
+                  BitTorrent file sharing, Blockchain networks, VoIP streaming, WebRTC video calls, Apple AirDrop.
+                </td>
+                <td>
+                  E-commerce portals, Banking mainframes, Google Search, Web hosting, Cloud database clusters, Email servers.
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <!-- Duel Cards View (Alternative View) -->
+        <div id="comparisonDuelView" class="duel-view-grid">
+          <div class="duel-column p2p-duel">
+            <h3 style="color:var(--color-accent); margin-bottom:1rem;">Peer-to-Peer Strengths & Trade-offs</h3>
+            <p><strong>Primary Strength:</strong> True resilience. There is no central target for hackers to knock offline via DDoS attacks, and no single hosting company that can unilaterally shut down the network.</p>
+            <p><strong>Primary Weakness:</strong> Lack of unified data control. Because peers can go offline at will, rare files can become temporarily or permanently unavailable if all seeders disconnect.</p>
+            <div style="margin-top:1.5rem; padding:1rem; background:var(--bg-primary); border-radius:var(--radius-sm);">
+              <span style="font-family:var(--font-mono); font-size:0.8rem; color:var(--color-accent);">RULE OF THUMB:</span>
+              <p style="font-size:0.85rem; margin-top:0.25rem;">Choose P2P when your primary objective is high-volume public file distribution, resilience against censorship, or zero-cost collective resource pooling.</p>
+            </div>
+          </div>
+
+          <div class="duel-column cs-duel">
+            <h3 style="color:#38BDF8; margin-bottom:1rem;">Client-Server Strengths & Trade-offs</h3>
+            <p><strong>Primary Strength:</strong> Deterministic control and enterprise compliance. The organization has 100% authority over who logs in, which records are altered, and how data is preserved.</p>
+            <p><strong>Primary Weakness:</strong> Architecture fragility at the center. If lightning strikes a datacenter or a fiber cable is severed without multi-region redundancy, the service is offline.</p>
+            <div style="margin-top:1.5rem; padding:1rem; background:var(--bg-primary); border-radius:var(--radius-sm);">
+              <span style="font-family:var(--font-mono); font-size:0.8rem; color:#38BDF8;">RULE OF THUMB:</span>
+              <p style="font-size:0.85rem; margin-top:0.25rem;">Choose Client-Server when your application requires user authentication, database ACID transactions, auditability, and dedicated customer service agreements.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =======================================================================
+         SECTION 6: MULTIMEDIA LEARNING CONTENT & VIDEO MASTERCLASS
+         ======================================================================= -->
+    <section id="multimedia-section">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tag">Multimedia Integration</span>
+          <h2 class="section-title">The 5 Elements of Multimedia in Action</h2>
+          <p class="section-subtitle">
+            As taught in our Multimedia curriculum by Instructor Precious B. Vasquez, multimedia integrates text, graphics, audio, video, and animation into interactive non-linear experiences that empower learners.
+          </p>
+        </div>
+
+        <!-- 5 Elements Grid (Directly from PDF slides 3-8) -->
+        <div class="multimedia-theory-grid">
+          <div class="mm-element-card">
+            <span class="mm-icon">✍️</span>
+            <h4>1. Text</h4>
+            <p>The foundation of communication. Delivers precise networking definitions, protocols, and technical hierarchies.</p>
+          </div>
+          <div class="mm-element-card">
+            <span class="mm-icon">🖼️</span>
+            <h4>2. Graphics / Images</h4>
+            <p>Vector SVGs for resolution-independent scalable diagrams, and Raster graphics for realistic textures and thumbnails.</p>
+          </div>
+          <div class="mm-element-card">
+            <span class="mm-icon">🔊</span>
+            <h4>3. Audio</h4>
+            <p>Synthesized Web Audio API packet pings and Web Speech narration provide sensory feedback and auditory engagement.</p>
+          </div>
+          <div class="mm-element-card">
+            <span class="mm-icon">🎬</span>
+            <h4>4. Video</h4>
+            <p>Combines dynamic motion, diagrams, and speech to instruct visual and auditory learners on complex protocol flows.</p>
+          </div>
+          <div class="mm-element-card">
+            <span class="mm-icon">✨</span>
+            <h4>5. Animation</h4>
+            <p>Simulates real-time packet transmissions, moving packets along network topologies to demystify abstract data transfers.</p>
+          </div>
+        </div>
+
+        <!-- DEDICATED EDUCATIONAL VIDEO CONTAINER (WITH REQUIRED PLACEHOLDER) -->
+        <div class="video-feature-container">
+          <div class="video-feature-header">
+            <span class="section-tag">Dedicated Video Masterclass</span>
+            <h3>Network Architectures Explained: P2P & Client-Server</h3>
+            <p style="max-width: 680px; margin: 0 auto; color: var(--text-muted); font-size: 0.95rem;">
+              Watch this educational video lecture for a comprehensive breakdown of packet structures, request-response lifecycles, and decentralized peer swarms.
+            </p>
+          </div>
+
+          <!-- EXACT REQUIRED VIDEO PLACEHOLDER STRUCTURE -->
+          <div class="video-player-wrapper">
+            <video controls width="100%" poster="assets/images/video-thumbnail.jpg">
+              <source src="YOUR_VIDEO_FILE.mp4" type="video/mp4">
+              Your browser does not support the video element.
+            </video>
+          </div>
+
+          <div class="video-caption-bar">
+            <div>
+              <span class="video-meta-badge">VIDEO ASSET: YOUR_VIDEO_FILE.mp4</span>
+              <p class="video-instructions-note" style="margin-top: 0.25rem;">
+                Note: This video player is configured as a customizable educational placeholder. Simply replace <code>YOUR_VIDEO_FILE.mp4</code> and <code>assets/images/video-thumbnail.jpg</code> with your own video file when ready.
+              </p>
+            </div>
+            <a href="assets/images/video-thumbnail.jpg" target="_blank" class="btn btn-secondary btn-sm">Inspect Thumbnail Poster</a>
+          </div>
+
+          <!-- Storyboard & Production Stage Breakdown (Directly from PDF Slides 96-113) -->
+          <div class="storyboard-box">
+            <h4 class="storyboard-title">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path></svg>
+              Video Production & Storyboard Breakdown (BSIT Multimedia Reference)
+            </h4>
+            <p style="font-size:0.85rem; color:var(--text-muted); margin-bottom:1.25rem;">
+              According to the video editing workflow taught in our subject (Pre-production, Production, and Post-production), this educational video follows this structured storyboard sequence:
+            </p>
+            <div class="storyboard-shots-grid">
+              <div class="shot-card">
+                <span class="shot-number">SHOT 01</span>
+                <div class="shot-type">Wide Shot (Establish)</div>
+                <div class="shot-desc">Server datacenter and connected global computer networks. Establishes the scale of digital communication.</div>
+              </div>
+              <div class="shot-card">
+                <span class="shot-number">SHOT 02</span>
+                <div class="shot-type">Medium Shot (Concept)</div>
+                <div class="shot-desc">Presenter demonstrates the Star topology of Client-Server systems with hardware blades in background.</div>
+              </div>
+              <div class="shot-card">
+                <span class="shot-number">SHOT 03</span>
+                <div class="shot-type">Close-Up (Detail)</div>
+                <div class="shot-desc">Tight focus on network interface card (NIC) flashing LED indicators during HTTP GET transmission.</div>
+              </div>
+              <div class="shot-card">
+                <span class="shot-number">SHOT 04</span>
+                <div class="shot-type">Motion Graphic (P2P)</div>
+                <div class="shot-desc">2D animated swarm illustrating BitTorrent hash verification across multiple residential peers.</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Elements and Principles of Design Interactive Callout -->
+        <div class="design-principles-showcase">
+          <div style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1rem;">
+            <div>
+              <span class="section-tag">Design Principles Applied</span>
+              <h3 style="font-size: 1.35rem; margin-top: 0.25rem;">Elements & Principles of Design Applied to this Webpage</h3>
+            </div>
+            <span style="font-size: 0.8rem; font-family: var(--font-mono); color: var(--color-accent);">CLICK CHIPS TO EXPLORE</span>
+          </div>
+
+          <div class="principles-chips-grid">
+            <button class="principle-chip active" data-principle="line">Line</button>
+            <button class="principle-chip" data-principle="shape">Shape</button>
+            <button class="principle-chip" data-principle="color">Color (#0B132B / #5BC0BE)</button>
+            <button class="principle-chip" data-principle="texture">Texture</button>
+            <button class="principle-chip" data-principle="space">Space (Negative Space)</button>
+            <button class="principle-chip" data-principle="balance">Balance (Symmetrical vs Asymmetrical)</button>
+            <button class="principle-chip" data-principle="contrast">Contrast</button>
+            <button class="principle-chip" data-principle="hierarchy">Hierarchy</button>
+            <button class="principle-chip" data-principle="unity">Unity & Harmony</button>
+          </div>
+
+          <div id="principleDetailText" class="principle-detail-panel">
+            <strong>Element of Design — Line:</strong> Lines connect network nodes and separate sections. Diagonal and zigzag lines convey active data packet motion across routers.
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- =======================================================================
+         SECTION 7: INTERACTIVE LEARNING (NETWORK PACKET SIMULATOR)
+         ======================================================================= -->
+    <section id="interactive-sim-section">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tag">Hands-On Laboratory</span>
+          <h2 class="section-title">Interactive Network Packet Simulator</h2>
+          <p class="section-subtitle">
+            Experience the mechanical difference between decentralized peer swarms and centralized request-response pipelines. Toggle simulation modes, trigger packets, inspect node telemetry, and watch real-time transmission logs.
+          </p>
+        </div>
+
+        <div class="sim-container">
+          <div class="sim-controls-header">
+            <div class="sim-mode-switcher">
+              <button class="sim-mode-btn active" data-sim-mode="p2p">Peer-to-Peer Swarm Simulation</button>
+              <button class="sim-mode-btn" data-sim-mode="cs">Client-Server Pipeline Simulation</button>
+            </div>
+            <div class="sim-action-triggers">
+              <button id="simActionBtn" class="btn btn-primary btn-sm">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
+                Transmit Packet / Chunk
+              </button>
+              <button id="simClearBtn" class="btn btn-secondary btn-sm">Clear Terminal</button>
+            </div>
+          </div>
+
+          <div class="sim-workbench-grid">
+            <!-- Left: Interactive Canvas Viewport -->
+            <div class="sim-canvas-viewport">
+              <svg id="simCanvasSvg" viewBox="0 0 540 480">
+                <!-- Injected dynamically via script.js -->
+              </svg>
+            </div>
+
+            <!-- Right: Node Inspector & Live Wireshark-Style Terminal -->
+            <div class="sim-sidebar">
+              <!-- Node Inspector Panel -->
+              <div class="sim-panel">
+                <div class="sim-panel-title">
+                  <span>Node Inspector</span>
+                  <span style="color:#10B981;">● ONLINE</span>
+                </div>
+                <div class="node-inspector-data">
+                  <div class="inspector-row">
+                    <span class="inspector-label">IP Address:</span>
+                    <span id="inspIp" class="inspector-val">192.168.1.101</span>
+                  </div>
+                  <div class="inspector-row">
+                    <span class="inspector-label">Assigned Role:</span>
+                    <span id="inspRole" class="inspector-val">Peer / Servent</span>
+                  </div>
+                  <div class="inspector-row">
+                    <span class="inspector-label">Throughput:</span>
+                    <span id="inspBw" class="inspector-val">100 Mbps Up/Down</span>
+                  </div>
+                  <div class="inspector-row">
+                    <span class="inspector-label">Status:</span>
+                    <span id="inspStatus" class="inspector-val">Ready (Click node to inspect)</span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Terminal Packet Log -->
+              <div class="sim-panel" style="flex:1; display:flex; flex-direction:column;">
+                <div class="sim-panel-title">
+                  <span>Packet Traffic Log</span>
+                  <span style="font-size:0.75rem; color:var(--text-dim);">Live Trace</span>
+                </div>
+                <div id="simTerminalLog" class="terminal-log" style="flex:1;">
+                  <!-- Log entries added dynamically -->
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =======================================================================
+         SECTION 8: SUMMARY AND KEY TAKEAWAYS & DECISION ENGINE
+         ======================================================================= -->
+    <section id="summary-section">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tag">Essential Takeaways</span>
+          <h2 class="section-title">Summary & Architecture Decision Guide</h2>
+          <p class="section-subtitle">
+            Recap the defining differences between both networking models, and use our interactive decision engine to determine which architecture best fits a given engineering challenge.
+          </p>
+        </div>
+
+        <!-- Summary Cards Grid -->
+        <div class="summary-cards-grid">
+          <div class="summary-card p2p-summary">
+            <div class="summary-header">
+              <div class="summary-icon">🔄</div>
+              <div>
+                <h3 style="font-size: 1.35rem;">Peer-to-Peer (P2P) in a Nutshell</h3>
+                <span style="color:var(--color-accent); font-size:0.85rem; font-family:var(--font-mono);">Decentralized • Collective • Resilient</span>
+              </div>
+            </div>
+            <p>
+              In P2P networking, all nodes act as both clients and servers. There is no central point of failure, meaning if individual nodes shut down, the collective network continues operating uninterrupted.
+            </p>
+            <ul class="arch-features-list" style="margin-top:1rem;">
+              <li><strong>Best For:</strong> High-bandwidth distributed file sharing, cryptocurrency ledgers, local proximity transfers, and censorship-resistant systems.</li>
+              <li><strong>Key Strength:</strong> Naturally expands bandwidth capacity as user demand surges.</li>
+              <li><strong>Key Weakness:</strong> Difficult centralized auditing, virus vulnerability, and inconsistent node uptime.</li>
+            </ul>
+          </div>
+
+          <div class="summary-card cs-summary">
+            <div class="summary-header">
+              <div class="summary-icon">🏢</div>
+              <div>
+                <h3 style="font-size: 1.35rem;">Client-Server in a Nutshell</h3>
+                <span style="color:#38BDF8; font-size:0.85rem; font-family:var(--font-mono);">Centralized • Governed • Authoritative</span>
+              </div>
+            </div>
+            <p>
+              In Client-Server networking, dumb or presentation clients submit requests to one authoritative server. All databases, security parameters, and business logic are governed from a single source of truth.
+            </p>
+            <ul class="arch-features-list" style="margin-top:1rem;">
+              <li><strong>Best For:</strong> Online banking, web e-commerce, cloud software (SaaS), healthcare patient databases, and multiplayer games.</li>
+              <li><strong>Key Strength:</strong> Ironclad security control, automated backups, and unified regulatory compliance.</li>
+              <li><strong>Key Weakness:</strong> Single point of failure and high server upkeep/licensing costs.</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Interactive Architecture Decision Engine -->
+        <div class="decision-engine-box">
+          <div style="text-align: center; margin-bottom: 1.5rem;">
+            <span class="section-tag">Interactive Recommender</span>
+            <h3 style="font-size: 1.5rem; margin-top: 0.25rem;">Which Architecture Should Your Next Project Use?</h3>
+            <p style="font-size: 0.95rem; color: var(--text-muted);">Select your project constraints below to calculate the optimal architectural recommendation:</p>
+          </div>
+
+          <div class="decision-grid">
+            <div class="decision-step-card">
+              <h5>1. Infrastructure Budget</h5>
+              <div class="decision-options">
+                <button class="decision-opt-btn selected" data-category="budget" data-val="low">Zero / Minimal (Use Peer Hardware)</button>
+                <button class="decision-opt-btn" data-category="budget" data-val="enterprise">Dedicated Enterprise Cloud Budget</button>
+              </div>
+            </div>
+
+            <div class="decision-step-card">
+              <h5>2. Security & Compliance</h5>
+              <div class="decision-options">
+                <button class="decision-opt-btn selected" data-category="security" data-val="standard">Decentralized / User Discretion</button>
+                <button class="decision-opt-btn" data-category="security" data-val="enterprise">Strict Central Audits / Banking / HIPAA</button>
+              </div>
+            </div>
+
+            <div class="decision-step-card">
+              <h5>3. Failure Tolerance Requirement</h5>
+              <div class="decision-options">
+                <button class="decision-opt-btn selected" data-category="failover" data-val="peer">Must Survive Node Outages (No Single Point)</button>
+                <button class="decision-opt-btn" data-category="failover" data-val="central">Can Rely on Redundant Server Data Center</button>
+              </div>
+            </div>
+          </div>
+
+          <div class="decision-recommendation-result">
+            <div class="rec-text">
+              <h4 id="decisionRecTitle">RECOMMENDED: Peer-to-Peer (P2P) Architecture</h4>
+              <p id="decisionRecDesc" style="font-size: 0.9rem; color: #cbd5e1; margin-top: 0.25rem;">
+                Your requirements prioritize low infrastructure costs and resilience against single-point failure. A decentralized mesh architecture like BitTorrent or WebRTC is ideal for your distributed workload.
+              </p>
+            </div>
+            <a href="#comparison-section" class="btn btn-secondary btn-sm">Review Comparison Matrix</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =======================================================================
+         SECTION 9: KNOWLEDGE CHECK / INTERACTIVE QUIZ
+         ======================================================================= -->
+    <section id="quiz-section">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tag">Learning Assessment</span>
+          <h2 class="section-title">Knowledge Check Quiz</h2>
+          <p class="section-subtitle">
+            Validate your mastery of Peer-to-Peer and Client-Server networking fundamentals. Receive instant feedback and detailed technical explanations for every question.
+          </p>
+        </div>
+
+        <div class="quiz-wrapper">
+          <!-- Active Question Card -->
+          <div id="quizActiveCard" class="quiz-card active">
+            <div class="quiz-header-bar">
+              <span id="quizScoreDisplay" class="quiz-score-display">Score: 0 / 6</span>
+              <span style="font-family: var(--font-mono); font-size: 0.8rem; color: var(--text-dim);">MULTIPLE CHOICE</span>
+            </div>
+
+            <div class="quiz-progress-track">
+              <div id="quizProgressFill" class="quiz-progress-fill"></div>
+            </div>
+
+            <h3 id="quizQuestionText" class="quiz-question-text">
+              Loading question...
+            </h3>
+
+            <div id="quizOptionsContainer" class="quiz-options-list">
+              <!-- Injected dynamically via script.js -->
+            </div>
+
+            <div id="quizFeedbackBox" class="quiz-feedback-box">
+              <!-- Injected explanation feedback -->
+            </div>
+
+            <div class="quiz-nav-footer">
+              <span style="font-size: 0.8rem; color: var(--text-dim);">Select an option to evaluate</span>
+              <button id="quizNextBtn" class="btn btn-primary" disabled>Next Question →</button>
+            </div>
+          </div>
+
+          <!-- Final Results Card -->
+          <div id="quizResultsCard" class="quiz-results-card">
+            <div class="quiz-trophy-icon">🏆</div>
+            <div id="quizFinalScore" class="quiz-final-score">6 / 6 (100%)</div>
+            <h3 id="quizVerdictTitle" class="quiz-verdict-title">Master Network Architect!</h3>
+            <p id="quizVerdictText" class="quiz-verdict-text">
+              Outstanding achievement! You demonstrated thorough mastery of both Peer-to-Peer and Client-Server architectures, including design principles and multimedia systems.
+            </p>
+            <button id="quizRestartBtn" class="btn btn-primary">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="1 4 1 10 7 10"></polyline><path d="M3.51 15a9 9 0 1 0 2.13-9.36L1 10"></path></svg>
+              Retry Knowledge Check
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- =========================================================================
+       SECTION 10: FOOTER
+       ========================================================================= -->
+  <footer class="site-footer" role="contentinfo">
+    <div class="container">
+      <div class="footer-top-grid">
+        <div class="footer-col">
+          <div class="nav-brand" style="margin-bottom: 1rem;">
+            <span class="brand-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="2" y="2" width="6" height="6" rx="1"></rect>
+                <rect x="16" y="2" width="6" height="6" rx="1"></rect>
+                <rect x="9" y="16" width="6" height="6" rx="1"></rect>
+                <path d="M5 8v3a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V8"></path>
+                <path d="M12 12v4"></path>
+              </svg>
+            </span>
+            <span>NetArchitect</span>
+          </div>
+          <p style="font-size: 0.9rem; color: var(--text-muted); line-height: 1.6;">
+            A responsive, non-linear multimedia learning platform designed to teach the fundamentals, trade-offs, and applications of Peer-to-Peer and Client-Server networking architectures.
+          </p>
+        </div>
+
+        <div class="footer-col">
+          <h4>Navigation</h4>
+          <ul class="footer-links-list">
+            <li><a href="#hero">Overview</a></li>
+            <li><a href="#networking-intro">Networking Basics</a></li>
+            <li><a href="#p2p-section">Peer-to-Peer</a></li>
+            <li><a href="#client-server-section">Client-Server</a></li>
+            <li><a href="#comparison-section">Comparison Matrix</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>Interactive Tools</h4>
+          <ul class="footer-links-list">
+            <li><a href="#multimedia-section">Multimedia Elements</a></li>
+            <li><a href="#multimedia-section">Video Masterclass</a></li>
+            <li><a href="#interactive-sim-section">Packet Simulator</a></li>
+            <li><a href="#summary-section">Decision Guide</a></li>
+            <li><a href="#quiz-section">Knowledge Quiz</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>Academic Attribution</h4>
+          <div class="attribution-badge">
+            <div class="attr-course">BSIT Multimedia & Networking</div>
+            <div class="attr-instructor">Module: Multimedia Systems (COMP018)</div>
+            <div class="attr-note">
+              Curriculum reference based on lecture syllabus by <strong>Instructor Precious B. Vasquez</strong>, focusing on the 5 Elements of Multimedia, Elements of Design, and Principles of Visual Communication.
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-bottom-bar">
+        <div>
+          © 2026 NetArchitect Educational Platform. Single-page web development project.
+        </div>
+        <div class="footer-design-pills">
+          <span class="f-pill">Line</span>
+          <span class="f-pill">Shape</span>
+          <span class="f-pill">Form</span>
+          <span class="f-pill">Color (#0B132B / #5BC0BE)</span>
+          <span class="f-pill">Texture</span>
+          <span class="f-pill">Space</span>
+          <span class="f-pill">Value</span>
+          <span class="f-pill">Unity</span>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Master JavaScript Application Logic -->
+  <script src="js/script.js"></script>
+</body>
+</html>
